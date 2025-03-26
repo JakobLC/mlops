@@ -1,5 +1,12 @@
 docs/site/
 
+data/raw/*
+data/processed/*
+
+# But keep the .gitkeep files
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
 # test cache
 manual_test/
 
