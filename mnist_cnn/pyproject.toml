@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mnist_cnn_proj"
+version = "0.0.1"
+description = "A test project that is a simple mnist cnn DL trainer"
+authors = [
+  { name = "jloch", email = "noneof@yabisness.com" },
+]
+
+keywords = ["machine learning", "MLOps"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dynamic = ["dependencies", "optional-dependencies"]
+
+[project.scripts]
+train = "mnist_cnn_proj.train:train"
+evaluate = "mnist_cnn_proj.evaluate:evaluate"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.dynamic.optional-dependencies]
+dev = {file = ['requirements_dev.txt']}
+
+[tool.ruff]
+line-length = 120
+lint.select = ["I"]
+
+[tool.coverage.run]
+omit = ["tests/*"]
